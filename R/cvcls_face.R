@@ -1,0 +1,31 @@
+# 由 tools/gen/emit_classes.py 生成，请勿手改。
+
+.ropecv_cv_FaceDetectorYN_FaceDetectorYN_create__0 <- function(model, config, input_size, score_threshold = 0.9, nms_threshold = 0.3, top_k = 5000, backend_id = 0, target_id = 0) .Call(`_ROpenCV_cv_FaceDetectorYN_FaceDetectorYN_create__0`, model, config, input_size, score_threshold, nms_threshold, top_k, backend_id, target_id)
+.ropecv_cv_FaceDetectorYN_FaceDetectorYN_create__1 <- function(framework, bufferModel, bufferConfig, input_size, score_threshold = 0.9, nms_threshold = 0.3, top_k = 5000, backend_id = 0, target_id = 0) .Call(`_ROpenCV_cv_FaceDetectorYN_FaceDetectorYN_create__1`, framework, bufferModel, bufferConfig, input_size, score_threshold, nms_threshold, top_k, backend_id, target_id)
+.ropecv_cv_FaceDetectorYN_FaceDetectorYN_detect__0 <- function(self, image, dst = NULL) .Call(`_ROpenCV_cv_FaceDetectorYN_FaceDetectorYN_detect__0`, self, image, dst)
+.ropecv_cv_FaceDetectorYN_FaceDetectorYN_getInputSize__0 <- function(self) .Call(`_ROpenCV_cv_FaceDetectorYN_FaceDetectorYN_getInputSize__0`, self)
+.ropecv_cv_FaceDetectorYN_FaceDetectorYN_getNMSThreshold__0 <- function(self) .Call(`_ROpenCV_cv_FaceDetectorYN_FaceDetectorYN_getNMSThreshold__0`, self)
+.ropecv_cv_FaceDetectorYN_FaceDetectorYN_getScoreThreshold__0 <- function(self) .Call(`_ROpenCV_cv_FaceDetectorYN_FaceDetectorYN_getScoreThreshold__0`, self)
+.ropecv_cv_FaceDetectorYN_FaceDetectorYN_getTopK__0 <- function(self) .Call(`_ROpenCV_cv_FaceDetectorYN_FaceDetectorYN_getTopK__0`, self)
+.ropecv_cv_FaceDetectorYN_FaceDetectorYN_setInputSize__0 <- function(self, input_size) .Call(`_ROpenCV_cv_FaceDetectorYN_FaceDetectorYN_setInputSize__0`, self, input_size)
+.ropecv_cv_FaceDetectorYN_FaceDetectorYN_setNMSThreshold__0 <- function(self, nms_threshold) .Call(`_ROpenCV_cv_FaceDetectorYN_FaceDetectorYN_setNMSThreshold__0`, self, nms_threshold)
+.ropecv_cv_FaceDetectorYN_FaceDetectorYN_setScoreThreshold__0 <- function(self, score_threshold) .Call(`_ROpenCV_cv_FaceDetectorYN_FaceDetectorYN_setScoreThreshold__0`, self, score_threshold)
+.ropecv_cv_FaceDetectorYN_FaceDetectorYN_setTopK__0 <- function(self, top_k) .Call(`_ROpenCV_cv_FaceDetectorYN_FaceDetectorYN_setTopK__0`, self, top_k)
+.ropecv_cv_FaceRecognizerSF_FaceRecognizerSF_create__0 <- function(model, config, backend_id = 0, target_id = 0) .Call(`_ROpenCV_cv_FaceRecognizerSF_FaceRecognizerSF_create__0`, model, config, backend_id, target_id)
+.ropecv_cv_FaceRecognizerSF_FaceRecognizerSF_alignCrop__0 <- function(self, src_img, face_box, dst = NULL) .Call(`_ROpenCV_cv_FaceRecognizerSF_FaceRecognizerSF_alignCrop__0`, self, src_img, face_box, dst)
+.ropecv_cv_FaceRecognizerSF_FaceRecognizerSF_feature__0 <- function(self, aligned_img, dst = NULL) .Call(`_ROpenCV_cv_FaceRecognizerSF_FaceRecognizerSF_feature__0`, self, aligned_img, dst)
+.ropecv_cv_FaceRecognizerSF_FaceRecognizerSF_match__0 <- function(self, face_feature1, face_feature2, dis_type = FR_COSINE) .Call(`_ROpenCV_cv_FaceRecognizerSF_FaceRecognizerSF_match__0`, self, face_feature1, face_feature2, dis_type)
+.ropecv_cv_face_FaceRecognizer_FaceRecognizer_getLabelInfo__0 <- function(self, label) .Call(`_ROpenCV_cv_face_FaceRecognizer_FaceRecognizer_getLabelInfo__0`, self, label)
+.ropecv_cv_face_FaceRecognizer_FaceRecognizer_getLabelsByString__0 <- function(self, str) .Call(`_ROpenCV_cv_face_FaceRecognizer_FaceRecognizer_getLabelsByString__0`, self, str)
+.ropecv_cv_face_FaceRecognizer_FaceRecognizer_predict__0 <- function(self, src) .Call(`_ROpenCV_cv_face_FaceRecognizer_FaceRecognizer_predict__0`, self, src)
+.ropecv_cv_face_FaceRecognizer_FaceRecognizer_read__0 <- function(self, filename) .Call(`_ROpenCV_cv_face_FaceRecognizer_FaceRecognizer_read__0`, self, filename)
+.ropecv_cv_face_FaceRecognizer_FaceRecognizer_setLabelInfo__0 <- function(self, label, strInfo) .Call(`_ROpenCV_cv_face_FaceRecognizer_FaceRecognizer_setLabelInfo__0`, self, label, strInfo)
+.ropecv_cv_face_FaceRecognizer_FaceRecognizer_train__0 <- function(self, src, labels) .Call(`_ROpenCV_cv_face_FaceRecognizer_FaceRecognizer_train__0`, self, src, labels)
+.ropecv_cv_face_FaceRecognizer_FaceRecognizer_update__0 <- function(self, src, labels) .Call(`_ROpenCV_cv_face_FaceRecognizer_FaceRecognizer_update__0`, self, src, labels)
+.ropecv_cv_face_FaceRecognizer_FaceRecognizer_write__0 <- function(self, filename) .Call(`_ROpenCV_cv_face_FaceRecognizer_FaceRecognizer_write__0`, self, filename)
+
+cvFaceDetectorYN <- function(...) .ropecv_new("cvFaceDetectorYN", "cvFaceDetectorYN", list(...))
+
+cvFaceRecognizerSF <- function(...) .ropecv_new("cvFaceRecognizerSF", "cvFaceRecognizerSF", list(...))
+
+cvFaceRecognizer <- function(...) .ropecv_new("cvFaceRecognizer", "cvFaceRecognizer", list(...))

@@ -1,0 +1,21 @@
+# 由 tools/gen/emit_classes.py 生成，请勿手改。
+
+.ropecv_cv_hfs_HfsSegment_HfsSegment_create__0 <- function(height, width, segEgbThresholdI = 0.08, minRegionSizeI = 100, segEgbThresholdII = 0.28, minRegionSizeII = 200, spatialWeight = 0.6, slicSpixelSize = 8, numSlicIter = 5) .Call(`_ROpenCV_cv_hfs_HfsSegment_HfsSegment_create__0`, height, width, segEgbThresholdI, minRegionSizeI, segEgbThresholdII, minRegionSizeII, spatialWeight, slicSpixelSize, numSlicIter)
+.ropecv_cv_hfs_HfsSegment_HfsSegment_getMinRegionSizeI__0 <- function(self) .Call(`_ROpenCV_cv_hfs_HfsSegment_HfsSegment_getMinRegionSizeI__0`, self)
+.ropecv_cv_hfs_HfsSegment_HfsSegment_getMinRegionSizeII__0 <- function(self) .Call(`_ROpenCV_cv_hfs_HfsSegment_HfsSegment_getMinRegionSizeII__0`, self)
+.ropecv_cv_hfs_HfsSegment_HfsSegment_getNumSlicIter__0 <- function(self) .Call(`_ROpenCV_cv_hfs_HfsSegment_HfsSegment_getNumSlicIter__0`, self)
+.ropecv_cv_hfs_HfsSegment_HfsSegment_getSegEgbThresholdI__0 <- function(self) .Call(`_ROpenCV_cv_hfs_HfsSegment_HfsSegment_getSegEgbThresholdI__0`, self)
+.ropecv_cv_hfs_HfsSegment_HfsSegment_getSegEgbThresholdII__0 <- function(self) .Call(`_ROpenCV_cv_hfs_HfsSegment_HfsSegment_getSegEgbThresholdII__0`, self)
+.ropecv_cv_hfs_HfsSegment_HfsSegment_getSlicSpixelSize__0 <- function(self) .Call(`_ROpenCV_cv_hfs_HfsSegment_HfsSegment_getSlicSpixelSize__0`, self)
+.ropecv_cv_hfs_HfsSegment_HfsSegment_getSpatialWeight__0 <- function(self) .Call(`_ROpenCV_cv_hfs_HfsSegment_HfsSegment_getSpatialWeight__0`, self)
+.ropecv_cv_hfs_HfsSegment_HfsSegment_performSegmentCpu__0 <- function(self, src, ifDraw = TRUE) .Call(`_ROpenCV_cv_hfs_HfsSegment_HfsSegment_performSegmentCpu__0`, self, src, ifDraw)
+.ropecv_cv_hfs_HfsSegment_HfsSegment_performSegmentGpu__0 <- function(self, src, ifDraw = TRUE) .Call(`_ROpenCV_cv_hfs_HfsSegment_HfsSegment_performSegmentGpu__0`, self, src, ifDraw)
+.ropecv_cv_hfs_HfsSegment_HfsSegment_setMinRegionSizeI__0 <- function(self, n) .Call(`_ROpenCV_cv_hfs_HfsSegment_HfsSegment_setMinRegionSizeI__0`, self, n)
+.ropecv_cv_hfs_HfsSegment_HfsSegment_setMinRegionSizeII__0 <- function(self, n) .Call(`_ROpenCV_cv_hfs_HfsSegment_HfsSegment_setMinRegionSizeII__0`, self, n)
+.ropecv_cv_hfs_HfsSegment_HfsSegment_setNumSlicIter__0 <- function(self, n) .Call(`_ROpenCV_cv_hfs_HfsSegment_HfsSegment_setNumSlicIter__0`, self, n)
+.ropecv_cv_hfs_HfsSegment_HfsSegment_setSegEgbThresholdI__0 <- function(self, c) .Call(`_ROpenCV_cv_hfs_HfsSegment_HfsSegment_setSegEgbThresholdI__0`, self, c)
+.ropecv_cv_hfs_HfsSegment_HfsSegment_setSegEgbThresholdII__0 <- function(self, c) .Call(`_ROpenCV_cv_hfs_HfsSegment_HfsSegment_setSegEgbThresholdII__0`, self, c)
+.ropecv_cv_hfs_HfsSegment_HfsSegment_setSlicSpixelSize__0 <- function(self, n) .Call(`_ROpenCV_cv_hfs_HfsSegment_HfsSegment_setSlicSpixelSize__0`, self, n)
+.ropecv_cv_hfs_HfsSegment_HfsSegment_setSpatialWeight__0 <- function(self, w) .Call(`_ROpenCV_cv_hfs_HfsSegment_HfsSegment_setSpatialWeight__0`, self, w)
+
+cvHfsSegment <- function(...) .ropecv_new("cvHfsSegment", "cvHfsSegment", list(...))

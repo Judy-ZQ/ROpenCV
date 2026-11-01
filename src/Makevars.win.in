@@ -1,0 +1,71 @@
+VERSION = 5.0.0
+
+# 这是模板，不要直接改。安装时由包根目录的 configure.win 解析 OpenCV 5 SDK 的
+# 真实位置、校验过之后，填进 @OPENCV_HOME@ 生成 src/Makevars.win。
+#
+# 解析顺序（configure.win 里实现）：
+#   1. $ROPENCV_OPENCV_HOME
+#   2. $PROBE_OPENCV_HOME         包还叫 probe 时的旧名字，保留兼容
+#   3. ../external/opencv-5.0.0   工作区内直接构建时的默认位置
+#
+# 写进去的是**绝对路径**。以前这里是相对 src/ 的 ../../external/opencv-$(VERSION)，
+# 只在源码树里成立：一旦 R CMD build 出 tarball、check 解到临时目录，或者
+# remotes 从 GitHub 解包，相对路径就指错地方，编译器只会丢一句
+# "opencv2/opencv.hpp: No such file"，很难看出是 SDK 路径的问题。
+RWINLIB = @OPENCV_HOME@
+
+# 用 -isystem 而不是 -I：OpenCV 5 的 mat.inl.hpp 里有一批
+# `-Wdeprecated-enum-enum-conversion`（枚举与枚举做算术，C++20 起弃用），
+# GCC 14 会报十几条。那是 OpenCV 自己的头文件，我们改不了，也不该为此降级
+# 自己的警告级别。标成 system header，GCC 就不报这些位置上的警告了。
+PKG_CPPFLAGS = -isystem$(RWINLIB)/include/opencv5 -DHAVE_XFEATURES2D
+
+# 这 4 个文件绑的是 OpenCV 5 已标 deprecated 的接口：
+#   cv_tracking            cv::estimateRigidTransform
+#   cvcls_aruco_detector   cv::aruco::Board::Board()        默认构造
+#   cvcls_charuco_detector cv::aruco::CharucoBoard::CharucoBoard() 默认构造
+#   cvcls_dnn              cv::dnn::Layer::run
+#
+# 绑定是有意保留的：它们是 OpenCV 公开 API 的一部分，从旧代码迁过来的用户还要用。
+# 但也不该整包关掉 -Wdeprecated-declarations——那会连手写代码里真正该修的地方
+# 一起盖掉。所以只对这 4 个目标压，其余文件照常报。
+cv_tracking.o: PKG_CPPFLAGS += -Wno-deprecated-declarations
+cvcls_aruco_detector.o: PKG_CPPFLAGS += -Wno-deprecated-declarations
+cvcls_charuco_detector.o: PKG_CPPFLAGS += -Wno-deprecated-declarations
+cvcls_dnn.o: PKG_CPPFLAGS += -Wno-deprecated-declarations
+
+TARGET = lib$(subst gcc,,$(COMPILED_BY))$(R_ARCH)
+
+# OpenCV 各模块之间存在循环依赖（libopencv_ximgproc.a 用到 libopencv_video.a 的
+# VariationalRefinement、用到 libopencv_stereo.a 的 StereoBM，而静态库在命令行上
+# 只能向后解析符号）。以前只链接少量模块时碰不到，一包到 ximgproc 就露出来了。
+# 与其按模块排一遍再补一遍，不如把整个 OpenCV 集合放进 --start-group，
+# 让 ld 反复扫描直到收敛。
+OPENCV_LIBS = \
+	-lopencv_alphamat -lopencv_bgsegm -lopencv_bioinspired -lopencv_calib \
+	-lopencv_ccalib -lopencv_3d -lopencv_datasets -lopencv_dnn \
+	-lopencv_dnn_objdetect -lopencv_dnn_superres -lopencv_dpm -lopencv_face \
+	-lopencv_features2d -lopencv_video -lopencv_videoio -lopencv_videostab \
+	-lopencv_flann -lopencv_fuzzy -lopencv_gapi -lopencv_hfs -lopencv_img_hash \
+	-lopencv_highgui -lopencv_imgcodecs -lopencv_intensity_transform \
+	-lopencv_line_descriptor -lopencv_mcc -lopencv_ml -lopencv_objdetect \
+	-lopencv_optflow -lopencv_phase_unwrapping -lopencv_photo -lopencv_plot \
+	-lopencv_quality -lopencv_rapid -lopencv_reg -lopencv_rgbd \
+	-lopencv_saliency -lopencv_shape -lopencv_signal -lopencv_stereo \
+	-lopencv_stitching -lopencv_structured_light -lopencv_superres \
+	-lopencv_surface_matching -lopencv_text -lopencv_tracking \
+	-lopencv_wechat_qrcode -lopencv_xfeatures2d -lopencv_ximgproc \
+	-lopencv_xobjdetect -lopencv_xphoto -lopencv_xstereo \
+	-lopencv_imgproc -lopencv_core
+
+THIRD_PARTY = \
+	-lade -llibclapack -lIlmImf -llibjpeg-turbo -llibpng -llibprotobuf \
+	-llibtiff -llibwebp -lz -lzlib -lopenjp2
+
+PKG_LIBS = \
+	-L$(RWINLIB)/lib/x64 \
+	-Wl,--start-group $(OPENCV_LIBS) -Wl,--end-group \
+	$(THIRD_PARTY) \
+	-lstdc++ -lcomctl32 -lgdi32 -lole32 -lsetupapi -lws2_32 -lavifil32 \
+	-lavicap32 -lwinmm -lmsvfw32 -lopengl32 -lglu32 -lcomdlg32 -lOleAut32 \
+	-luuid -lgfortran -lquadmath

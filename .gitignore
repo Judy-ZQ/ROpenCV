@@ -1,0 +1,31 @@
+# ---- 编译产物 ----
+# src/ 里有 281 个 .cpp，编译后会留下 281 个 .o 和一个 53MB 的 .dll。
+# R CMD build 靠 .Rbuildignore 排除它们，但 git 不认 .Rbuildignore，
+# 不写在这里就会把 93MB 的中间文件提交进仓库。
+src/*.o
+src/*.obj
+src/*.dll
+src/*.so
+src/*.dylib
+src/*.a
+
+# configure.win 生成的构建文件（模板是 src/Makevars.win.in）
+src/Makevars.win
+
+# ---- R / RStudio ----
+.Rhistory
+.RData
+.Rproj.user/
+.Ruserdata/
+
+# ---- Visual Studio ----
+.vs/
+
+# ---- 本地临时脚本 ----
+test-probe.R
+test2.R
+
+# ---- 构建产物 ----
+*.tar.gz
+*.zip
+*.Rcheck/

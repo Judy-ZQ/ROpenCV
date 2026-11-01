@@ -1,0 +1,14 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.vs$
+^\.Rhistory$
+^test-probe\.R$
+^test2\.R$
+^src/.*\.(o|obj|dll|so|a)$
+^src/Makevars\.win$
+^\.gitignore$
+^\.git$
+^\.github$
+^README\.md$
+^README\.Rmd$
+^\.RData$

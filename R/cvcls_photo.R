@@ -1,0 +1,82 @@
+# 由 tools/gen/emit_classes.py 生成，请勿手改。
+
+.ropecv_cv_AlignExposures_AlignExposures_process__0 <- function(self, src, dst = NULL, times, response) .Call(`_ROpenCV_cv_AlignExposures_AlignExposures_process__0`, self, src, dst, times, response)
+.ropecv_cv_AlignMTB_AlignMTB_calculateShift__0 <- function(self, img0, img1) .Call(`_ROpenCV_cv_AlignMTB_AlignMTB_calculateShift__0`, self, img0, img1)
+.ropecv_cv_AlignMTB_AlignMTB_computeBitmaps__0 <- function(self, img, tb = NULL, eb = NULL) .Call(`_ROpenCV_cv_AlignMTB_AlignMTB_computeBitmaps__0`, self, img, tb, eb)
+.ropecv_cv_AlignMTB_AlignMTB_getCut__0 <- function(self) .Call(`_ROpenCV_cv_AlignMTB_AlignMTB_getCut__0`, self)
+.ropecv_cv_AlignMTB_AlignMTB_getExcludeRange__0 <- function(self) .Call(`_ROpenCV_cv_AlignMTB_AlignMTB_getExcludeRange__0`, self)
+.ropecv_cv_AlignMTB_AlignMTB_getMaxBits__0 <- function(self) .Call(`_ROpenCV_cv_AlignMTB_AlignMTB_getMaxBits__0`, self)
+.ropecv_cv_AlignMTB_AlignMTB_process__0 <- function(self, src, dst = NULL) .Call(`_ROpenCV_cv_AlignMTB_AlignMTB_process__0`, self, src, dst)
+.ropecv_cv_AlignMTB_AlignMTB_process__1 <- function(self, src, dst = NULL, times, response) .Call(`_ROpenCV_cv_AlignMTB_AlignMTB_process__1`, self, src, dst, times, response)
+.ropecv_cv_AlignMTB_AlignMTB_setCut__0 <- function(self, value) .Call(`_ROpenCV_cv_AlignMTB_AlignMTB_setCut__0`, self, value)
+.ropecv_cv_AlignMTB_AlignMTB_setExcludeRange__0 <- function(self, exclude_range) .Call(`_ROpenCV_cv_AlignMTB_AlignMTB_setExcludeRange__0`, self, exclude_range)
+.ropecv_cv_AlignMTB_AlignMTB_setMaxBits__0 <- function(self, max_bits) .Call(`_ROpenCV_cv_AlignMTB_AlignMTB_setMaxBits__0`, self, max_bits)
+.ropecv_cv_AlignMTB_AlignMTB_shiftMat__0 <- function(self, src, shift, dst = NULL) .Call(`_ROpenCV_cv_AlignMTB_AlignMTB_shiftMat__0`, self, src, shift, dst)
+.ropecv_cv_CalibrateCRF_CalibrateCRF_process__0 <- function(self, src, times, dst = NULL) .Call(`_ROpenCV_cv_CalibrateCRF_CalibrateCRF_process__0`, self, src, times, dst)
+.ropecv_cv_CalibrateDebevec_CalibrateDebevec_getLambda__0 <- function(self) .Call(`_ROpenCV_cv_CalibrateDebevec_CalibrateDebevec_getLambda__0`, self)
+.ropecv_cv_CalibrateDebevec_CalibrateDebevec_getRandom__0 <- function(self) .Call(`_ROpenCV_cv_CalibrateDebevec_CalibrateDebevec_getRandom__0`, self)
+.ropecv_cv_CalibrateDebevec_CalibrateDebevec_getSamples__0 <- function(self) .Call(`_ROpenCV_cv_CalibrateDebevec_CalibrateDebevec_getSamples__0`, self)
+.ropecv_cv_CalibrateDebevec_CalibrateDebevec_setLambda__0 <- function(self, lambda) .Call(`_ROpenCV_cv_CalibrateDebevec_CalibrateDebevec_setLambda__0`, self, lambda)
+.ropecv_cv_CalibrateDebevec_CalibrateDebevec_setRandom__0 <- function(self, random) .Call(`_ROpenCV_cv_CalibrateDebevec_CalibrateDebevec_setRandom__0`, self, random)
+.ropecv_cv_CalibrateDebevec_CalibrateDebevec_setSamples__0 <- function(self, samples) .Call(`_ROpenCV_cv_CalibrateDebevec_CalibrateDebevec_setSamples__0`, self, samples)
+.ropecv_cv_CalibrateRobertson_CalibrateRobertson_getMaxIter__0 <- function(self) .Call(`_ROpenCV_cv_CalibrateRobertson_CalibrateRobertson_getMaxIter__0`, self)
+.ropecv_cv_CalibrateRobertson_CalibrateRobertson_getRadiance__0 <- function(self) .Call(`_ROpenCV_cv_CalibrateRobertson_CalibrateRobertson_getRadiance__0`, self)
+.ropecv_cv_CalibrateRobertson_CalibrateRobertson_getThreshold__0 <- function(self) .Call(`_ROpenCV_cv_CalibrateRobertson_CalibrateRobertson_getThreshold__0`, self)
+.ropecv_cv_CalibrateRobertson_CalibrateRobertson_setMaxIter__0 <- function(self, max_iter) .Call(`_ROpenCV_cv_CalibrateRobertson_CalibrateRobertson_setMaxIter__0`, self, max_iter)
+.ropecv_cv_CalibrateRobertson_CalibrateRobertson_setThreshold__0 <- function(self, threshold) .Call(`_ROpenCV_cv_CalibrateRobertson_CalibrateRobertson_setThreshold__0`, self, threshold)
+.ropecv_cv_MergeDebevec_MergeDebevec_process__0 <- function(self, src, times, dst = NULL) .Call(`_ROpenCV_cv_MergeDebevec_MergeDebevec_process__0`, self, src, times, dst)
+.ropecv_cv_MergeDebevec_MergeDebevec_process__1 <- function(self, src, times, response, dst = NULL) .Call(`_ROpenCV_cv_MergeDebevec_MergeDebevec_process__1`, self, src, times, response, dst)
+.ropecv_cv_MergeExposures_MergeExposures_process__0 <- function(self, src, times, response, dst = NULL) .Call(`_ROpenCV_cv_MergeExposures_MergeExposures_process__0`, self, src, times, response, dst)
+.ropecv_cv_MergeMertens_MergeMertens_getContrastWeight__0 <- function(self) .Call(`_ROpenCV_cv_MergeMertens_MergeMertens_getContrastWeight__0`, self)
+.ropecv_cv_MergeMertens_MergeMertens_getExposureWeight__0 <- function(self) .Call(`_ROpenCV_cv_MergeMertens_MergeMertens_getExposureWeight__0`, self)
+.ropecv_cv_MergeMertens_MergeMertens_getSaturationWeight__0 <- function(self) .Call(`_ROpenCV_cv_MergeMertens_MergeMertens_getSaturationWeight__0`, self)
+.ropecv_cv_MergeMertens_MergeMertens_process__0 <- function(self, src, dst = NULL) .Call(`_ROpenCV_cv_MergeMertens_MergeMertens_process__0`, self, src, dst)
+.ropecv_cv_MergeMertens_MergeMertens_process__1 <- function(self, src, times, response, dst = NULL) .Call(`_ROpenCV_cv_MergeMertens_MergeMertens_process__1`, self, src, times, response, dst)
+.ropecv_cv_MergeMertens_MergeMertens_setContrastWeight__0 <- function(self, contrast_weiht) .Call(`_ROpenCV_cv_MergeMertens_MergeMertens_setContrastWeight__0`, self, contrast_weiht)
+.ropecv_cv_MergeMertens_MergeMertens_setExposureWeight__0 <- function(self, exposure_weight) .Call(`_ROpenCV_cv_MergeMertens_MergeMertens_setExposureWeight__0`, self, exposure_weight)
+.ropecv_cv_MergeMertens_MergeMertens_setSaturationWeight__0 <- function(self, saturation_weight) .Call(`_ROpenCV_cv_MergeMertens_MergeMertens_setSaturationWeight__0`, self, saturation_weight)
+.ropecv_cv_MergeRobertson_MergeRobertson_process__0 <- function(self, src, times, dst = NULL) .Call(`_ROpenCV_cv_MergeRobertson_MergeRobertson_process__0`, self, src, times, dst)
+.ropecv_cv_MergeRobertson_MergeRobertson_process__1 <- function(self, src, times, response, dst = NULL) .Call(`_ROpenCV_cv_MergeRobertson_MergeRobertson_process__1`, self, src, times, response, dst)
+.ropecv_cv_Tonemap_Tonemap_getGamma__0 <- function(self) .Call(`_ROpenCV_cv_Tonemap_Tonemap_getGamma__0`, self)
+.ropecv_cv_Tonemap_Tonemap_process__0 <- function(self, src, dst = NULL) .Call(`_ROpenCV_cv_Tonemap_Tonemap_process__0`, self, src, dst)
+.ropecv_cv_Tonemap_Tonemap_setGamma__0 <- function(self, gamma) .Call(`_ROpenCV_cv_Tonemap_Tonemap_setGamma__0`, self, gamma)
+.ropecv_cv_TonemapDrago_TonemapDrago_getBias__0 <- function(self) .Call(`_ROpenCV_cv_TonemapDrago_TonemapDrago_getBias__0`, self)
+.ropecv_cv_TonemapDrago_TonemapDrago_getSaturation__0 <- function(self) .Call(`_ROpenCV_cv_TonemapDrago_TonemapDrago_getSaturation__0`, self)
+.ropecv_cv_TonemapDrago_TonemapDrago_setBias__0 <- function(self, bias) .Call(`_ROpenCV_cv_TonemapDrago_TonemapDrago_setBias__0`, self, bias)
+.ropecv_cv_TonemapDrago_TonemapDrago_setSaturation__0 <- function(self, saturation) .Call(`_ROpenCV_cv_TonemapDrago_TonemapDrago_setSaturation__0`, self, saturation)
+.ropecv_cv_TonemapMantiuk_TonemapMantiuk_getSaturation__0 <- function(self) .Call(`_ROpenCV_cv_TonemapMantiuk_TonemapMantiuk_getSaturation__0`, self)
+.ropecv_cv_TonemapMantiuk_TonemapMantiuk_getScale__0 <- function(self) .Call(`_ROpenCV_cv_TonemapMantiuk_TonemapMantiuk_getScale__0`, self)
+.ropecv_cv_TonemapMantiuk_TonemapMantiuk_setSaturation__0 <- function(self, saturation) .Call(`_ROpenCV_cv_TonemapMantiuk_TonemapMantiuk_setSaturation__0`, self, saturation)
+.ropecv_cv_TonemapMantiuk_TonemapMantiuk_setScale__0 <- function(self, scale) .Call(`_ROpenCV_cv_TonemapMantiuk_TonemapMantiuk_setScale__0`, self, scale)
+.ropecv_cv_TonemapReinhard_TonemapReinhard_getColorAdaptation__0 <- function(self) .Call(`_ROpenCV_cv_TonemapReinhard_TonemapReinhard_getColorAdaptation__0`, self)
+.ropecv_cv_TonemapReinhard_TonemapReinhard_getIntensity__0 <- function(self) .Call(`_ROpenCV_cv_TonemapReinhard_TonemapReinhard_getIntensity__0`, self)
+.ropecv_cv_TonemapReinhard_TonemapReinhard_getLightAdaptation__0 <- function(self) .Call(`_ROpenCV_cv_TonemapReinhard_TonemapReinhard_getLightAdaptation__0`, self)
+.ropecv_cv_TonemapReinhard_TonemapReinhard_setColorAdaptation__0 <- function(self, color_adapt) .Call(`_ROpenCV_cv_TonemapReinhard_TonemapReinhard_setColorAdaptation__0`, self, color_adapt)
+.ropecv_cv_TonemapReinhard_TonemapReinhard_setIntensity__0 <- function(self, intensity) .Call(`_ROpenCV_cv_TonemapReinhard_TonemapReinhard_setIntensity__0`, self, intensity)
+.ropecv_cv_TonemapReinhard_TonemapReinhard_setLightAdaptation__0 <- function(self, light_adapt) .Call(`_ROpenCV_cv_TonemapReinhard_TonemapReinhard_setLightAdaptation__0`, self, light_adapt)
+
+cvAlignExposures <- function(...) .ropecv_new("cvAlignExposures", "cvAlignExposures", list(...))
+
+cvAlignMTB <- function(...) .ropecv_new("cvAlignMTB", "cvAlignMTB", list(...))
+
+cvCalibrateCRF <- function(...) .ropecv_new("cvCalibrateCRF", "cvCalibrateCRF", list(...))
+
+cvCalibrateDebevec <- function(...) .ropecv_new("cvCalibrateDebevec", "cvCalibrateDebevec", list(...))
+
+cvCalibrateRobertson <- function(...) .ropecv_new("cvCalibrateRobertson", "cvCalibrateRobertson", list(...))
+
+cvMergeDebevec <- function(...) .ropecv_new("cvMergeDebevec", "cvMergeDebevec", list(...))
+
+cvMergeExposures <- function(...) .ropecv_new("cvMergeExposures", "cvMergeExposures", list(...))
+
+cvMergeMertens <- function(...) .ropecv_new("cvMergeMertens", "cvMergeMertens", list(...))
+
+cvMergeRobertson <- function(...) .ropecv_new("cvMergeRobertson", "cvMergeRobertson", list(...))
+
+cvTonemap <- function(...) .ropecv_new("cvTonemap", "cvTonemap", list(...))
+
+cvTonemapDrago <- function(...) .ropecv_new("cvTonemapDrago", "cvTonemapDrago", list(...))
+
+cvTonemapMantiuk <- function(...) .ropecv_new("cvTonemapMantiuk", "cvTonemapMantiuk", list(...))
+
+cvTonemapReinhard <- function(...) .ropecv_new("cvTonemapReinhard", "cvTonemapReinhard", list(...))

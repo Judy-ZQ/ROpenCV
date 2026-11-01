@@ -1,0 +1,23 @@
+# 由 tools/gen/emit_classes.py 生成，请勿手改。
+
+.ropecv_cv_Stitcher_Stitcher_create__0 <- function(mode = PANORAMA) .Call(`_ROpenCV_cv_Stitcher_Stitcher_create__0`, mode)
+.ropecv_cv_Stitcher_Stitcher_composePanorama__0 <- function(self, dst = NULL) .Call(`_ROpenCV_cv_Stitcher_Stitcher_composePanorama__0`, self, dst)
+.ropecv_cv_Stitcher_Stitcher_composePanorama__1 <- function(self, images, dst = NULL) .Call(`_ROpenCV_cv_Stitcher_Stitcher_composePanorama__1`, self, images, dst)
+.ropecv_cv_Stitcher_Stitcher_compositingResol__0 <- function(self) .Call(`_ROpenCV_cv_Stitcher_Stitcher_compositingResol__0`, self)
+.ropecv_cv_Stitcher_Stitcher_estimateTransform__0 <- function(self, images, masks = NULL) .Call(`_ROpenCV_cv_Stitcher_Stitcher_estimateTransform__0`, self, images, masks)
+.ropecv_cv_Stitcher_Stitcher_interpolationFlags__0 <- function(self) .Call(`_ROpenCV_cv_Stitcher_Stitcher_interpolationFlags__0`, self)
+.ropecv_cv_Stitcher_Stitcher_panoConfidenceThresh__0 <- function(self) .Call(`_ROpenCV_cv_Stitcher_Stitcher_panoConfidenceThresh__0`, self)
+.ropecv_cv_Stitcher_Stitcher_registrationResol__0 <- function(self) .Call(`_ROpenCV_cv_Stitcher_Stitcher_registrationResol__0`, self)
+.ropecv_cv_Stitcher_Stitcher_seamEstimationResol__0 <- function(self) .Call(`_ROpenCV_cv_Stitcher_Stitcher_seamEstimationResol__0`, self)
+.ropecv_cv_Stitcher_Stitcher_setCompositingResol__0 <- function(self, resol_mpx) .Call(`_ROpenCV_cv_Stitcher_Stitcher_setCompositingResol__0`, self, resol_mpx)
+.ropecv_cv_Stitcher_Stitcher_setInterpolationFlags__0 <- function(self, interp_flags) .Call(`_ROpenCV_cv_Stitcher_Stitcher_setInterpolationFlags__0`, self, interp_flags)
+.ropecv_cv_Stitcher_Stitcher_setPanoConfidenceThresh__0 <- function(self, conf_thresh) .Call(`_ROpenCV_cv_Stitcher_Stitcher_setPanoConfidenceThresh__0`, self, conf_thresh)
+.ropecv_cv_Stitcher_Stitcher_setRegistrationResol__0 <- function(self, resol_mpx) .Call(`_ROpenCV_cv_Stitcher_Stitcher_setRegistrationResol__0`, self, resol_mpx)
+.ropecv_cv_Stitcher_Stitcher_setSeamEstimationResol__0 <- function(self, resol_mpx) .Call(`_ROpenCV_cv_Stitcher_Stitcher_setSeamEstimationResol__0`, self, resol_mpx)
+.ropecv_cv_Stitcher_Stitcher_setWaveCorrection__0 <- function(self, flag) .Call(`_ROpenCV_cv_Stitcher_Stitcher_setWaveCorrection__0`, self, flag)
+.ropecv_cv_Stitcher_Stitcher_stitch__0 <- function(self, images, dst = NULL) .Call(`_ROpenCV_cv_Stitcher_Stitcher_stitch__0`, self, images, dst)
+.ropecv_cv_Stitcher_Stitcher_stitch__1 <- function(self, images, masks, dst = NULL) .Call(`_ROpenCV_cv_Stitcher_Stitcher_stitch__1`, self, images, masks, dst)
+.ropecv_cv_Stitcher_Stitcher_waveCorrection__0 <- function(self) .Call(`_ROpenCV_cv_Stitcher_Stitcher_waveCorrection__0`, self)
+.ropecv_cv_Stitcher_Stitcher_workScale__0 <- function(self) .Call(`_ROpenCV_cv_Stitcher_Stitcher_workScale__0`, self)
+
+cvStitcher <- function(...) .ropecv_new("cvStitcher", "cvStitcher", list(...))

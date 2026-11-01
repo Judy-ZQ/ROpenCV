@@ -1,0 +1,16 @@
+Package: ROpenCV
+Type: Package
+Title: R Bindings for OpenCV 5
+Version: 0.0.1
+Authors@R: person("Qing", "Zhu", email = "20170458@alu.cqu.edu.cn",
+    role = c("aut", "cre"))
+Description: R interface to OpenCV 5. Image matrices are exposed as a
+    zero-copy cvMat class, and the function surface is generated from the
+    OpenCV headers rather than hand-written.
+License: GPL-2
+Imports: Rcpp, graphics, grDevices
+LinkingTo: Rcpp
+Encoding: UTF-8
+URL: https://github.com/Judy-ZQ/ROpenCV
+BugReports: https://github.com/Judy-ZQ/ROpenCV/issues
+SystemRequirements: OpenCV (>= 5.0); only required when installing from source

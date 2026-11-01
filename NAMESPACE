@@ -1,0 +1,51 @@
+useDynLib(ROpenCV, .registration=TRUE)
+importFrom(Rcpp, sourceCpp)
+importFrom(grDevices, as.raster)
+importFrom(graphics, plot)
+
+# 手写入口与 Mat 构造器
+export(Mat, mat_info, as_array, is_cvMat, is_cvObject)
+# 旧版 ROpenCV 的互通函数名（cv2r 取出来改，r2cv 写回去）
+export(cv2r, r2cv)
+S3method(print, cvMat)
+S3method(dim, cvMat)
+S3method(length, cvMat)
+S3method("[", cvMat)
+S3method("[<-", cvMat)
+S3method(as.array, cvMat)
+S3method(as.raster, cvMat)
+S3method(plot, cvMat)
+S3method(summary, cvMat)
+
+# 运算符：让 cvMat 像矩阵一样参与算术（ops.R）
+S3method(Ops, cvMat)
+S3method(Math, cvMat)
+S3method(Summary, cvMat)
+S3method(as.matrix, cvMat)
+S3method(mean, cvMat)
+S3method("%*%", cvMat)
+S3method(solve, cvMat)
+S3method(t, cvMat)
+S3method(cbind, cvMat)
+S3method(rbind, cvMat)
+S3method(determinant, cvMat)
+
+# cv 对象：方法走 $，另有 print / names
+S3method("$", cvObject)
+S3method(print, cvObject)
+S3method(names, cvObject)
+
+# FileNode 唯一提供 [[ 的 cv 对象：按名字取子节点
+S3method("[[", cvFileNode)
+
+exportPattern("^probe_")
+
+# 生成器产出的公开函数
+exportPattern("^cv_")
+
+# 类构造器：cvCLAHE / cvSIFT / cvBFMatcher ...
+exportPattern("^cv[A-Z]")
+
+# 枚举常量：CV_* 类型码 + OpenCV 的枚举名（全大写）
+exportPattern("^CV_")
+exportPattern("^[A-Z][A-Z0-9_]*$")

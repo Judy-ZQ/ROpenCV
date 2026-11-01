@@ -1,0 +1,85 @@
+#!/bin/sh
+# 解析 OpenCV 5 SDK 的位置，校验之后生成 src/Makevars.win。
+#
+# R 在安装前会以包根目录为工作目录执行本脚本（Windows 上优先找 configure.win）。
+# 目的是把「SDK 到底在哪」这件事从编译器手里拿回来：路径不对的时候，
+# 编译器只会报 opencv2/opencv.hpp: No such file，看不出是缺 SDK 还是路径写错。
+
+PKG_ROOT=`pwd`
+TARGET="$PKG_ROOT/src/Makevars.win"
+TPL="$PKG_ROOT/src/Makevars.win.in"
+
+fail() {
+  echo ""
+  echo "=============== ROpenCV: 没有找到可用的 OpenCV 5 SDK ==============="
+  echo ""
+  echo "  $1"
+  echo ""
+  echo "  编译这个包需要 OpenCV 5 的头文件和静态库。两种办法："
+  echo ""
+  echo "  (1) 只想用这个包 —— 不要从源码装。到 Releases 页面下载"
+  echo "      ROpenCV_x.y.z.zip，它是静态链接好的，不需要 OpenCV："
+  echo ""
+  echo "        install.packages(\"ROpenCV_x.y.z.zip\", repos = NULL,"
+  echo "                         type = \"win.binary\")"
+  echo ""
+  echo "  (2) 确实要从源码编译 —— 指向你的 OpenCV 5 SDK 目录，该目录下应当有"
+  echo "      include/opencv5/opencv2/opencv.hpp 和 lib/x64/："
+  echo ""
+  echo "        Sys.setenv(ROPENCV_OPENCV_HOME = \"C:/opencv-5.0.0\")"
+  echo "        remotes::install_github(\"USER/ROpenCV\")"
+  echo ""
+  echo "      命令行等价写法："
+  echo "        set ROPENCV_OPENCV_HOME=C:\\opencv-5.0.0"
+  echo ""
+  echo "==================================================================="
+  echo ""
+  exit 1
+}
+
+# 一个目录算不算可用的 SDK：两个关键路径都得在。
+usable() {
+  [ -n "$1" ] || return 1
+  [ -f "$1/include/opencv5/opencv2/opencv.hpp" ] || return 1
+  [ -d "$1/lib/x64" ] || return 1
+  return 0
+}
+
+[ -f "$TPL" ] || fail "缺少模板 src/Makevars.win.in，源码包不完整。"
+
+OCV=""
+FROM=""
+
+if [ -n "$ROPENCV_OPENCV_HOME" ]; then
+  OCV="$ROPENCV_OPENCV_HOME"; FROM="环境变量 ROPENCV_OPENCV_HOME"
+elif [ -n "$PROBE_OPENCV_HOME" ]; then
+  OCV="$PROBE_OPENCV_HOME"; FROM="环境变量 PROBE_OPENCV_HOME（旧名字）"
+elif usable "$PKG_ROOT/../external/opencv-5.0.0"; then
+  OCV="$PKG_ROOT/../external/opencv-5.0.0"; FROM="默认位置"
+elif usable "$PKG_ROOT/../../external/opencv-5.0.0"; then
+  OCV="$PKG_ROOT/../../external/opencv-5.0.0"; FROM="默认位置"
+else
+  fail "既没有设置 ROPENCV_OPENCV_HOME，默认位置 ../external/opencv-5.0.0 里也没有 SDK。"
+fi
+
+usable "$OCV" || fail "$FROM 指向的目录不是可用的 OpenCV 5 SDK：$OCV"
+
+# 去掉尾部斜杠，否则写进 Makevars 会变成 .../opencv-5.0.0//lib/x64。
+OCV=`echo "$OCV" | sed 's:/*$::'`
+
+# 转成绝对路径再写进 Makevars。相对路径一离开源码树就失效——R CMD check 会把
+# 源码解到临时目录，remotes 从 GitHub 解包也是另一个目录。
+# cygpath -m 给出 H:/a/b 这种混合写法，Makefile 和 gcc 都认。
+if command -v cygpath >/dev/null 2>&1; then
+  OCV=`cygpath -m "$OCV"`
+else
+  OCV=`cd "$OCV" && pwd`
+fi
+
+case "$OCV" in
+  *" "*) echo "ROpenCV: 警告——SDK 路径里有空格，Makefile 可能处理不了：$OCV" ;;
+esac
+
+sed "s|@OPENCV_HOME@|$OCV|" "$TPL" > "$TARGET" || fail "写 src/Makevars.win 失败。"
+
+echo "ROpenCV: 使用 OpenCV 5 SDK  $OCV   （来源：$FROM）"
