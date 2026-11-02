@@ -20,12 +20,24 @@ install.packages("path/to/ROpenCV_0.0.2.zip", repos = NULL, type = "win.binary")
 Or let R fetch it directly, without saving the file first:
 
 ```r
+options(timeout = 600)   # the asset is 40 MB; R's default download timeout is 60 s
 install.packages(
   "https://github.com/Judy-ZQ/ROpenCV/releases/download/v0.0.2/ROpenCV_0.0.2.zip",
   repos = NULL,
   type  = "win.binary"
 )
 ```
+
+That `options(timeout = 600)` is not optional on a slow link. With the default 60 s the
+download is cut off partway and you get
+
+```
+downloaded length 8724394 != reported length 39520543
+cannot open URL '...'
+```
+
+which looks like a broken release but is only R giving up. Measured here: the full asset
+takes about 5 minutes, so raise the timeout rather than retrying.
 
 The binary was built with **R 4.6.0 (x86_64)**. It usually loads on other R 4.x releases,
 but that is not guaranteed — if it does not, build from source.
