@@ -1,7 +1,7 @@
 Package: ROpenCV
 Type: Package
 Title: R Bindings for OpenCV 5
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: person("Qing", "Zhu", email = "20170458@alu.cqu.edu.cn",
     role = c("aut", "cre"))
 Description: R interface to OpenCV 5. Image matrices are exposed as a

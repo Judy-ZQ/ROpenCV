@@ -29,6 +29,10 @@ cv_minMaxIdx <- function(src, mask = NULL) {
 #'    [cv_getTrackbarPos()] 读。简单，适合「滑块调参数 + 循环重绘」。
 #' 2. 传一个函数：拖动时 OpenCV 直接回调到 R，不需要循环。函数接收一个整数位置。
 #'
+#' **创建时不会调用 `onChange`**，和 `cv::createTrackbar` 一致：建滑动条只挂
+#' 回调、不动画面，第一帧要自己调一次函数画出来。所以一个窗口挂多条滑动条、
+#' 共用一个回调时，先把几条都建好，再统一调一次即可——不需要任何 ready 开关。
+#'
 #' @param trackbarname 滑动条名字，读位置时用同一个名字
 #' @param winname 所在的窗口名，窗口要先用 [cv_namedWindow()] 建好
 #' @param value 初始位置

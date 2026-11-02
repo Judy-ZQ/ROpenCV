@@ -12,6 +12,9 @@ src/*.a
 # configure.win 生成的构建文件（模板是 src/Makevars.win.in）
 src/Makevars.win
 
+# 链接时生成的导出符号列表。构建失败被中断时会留下来，1.5MB，不该进仓库。
+src/tmp.def
+
 # ---- R / RStudio ----
 .Rhistory
 .RData

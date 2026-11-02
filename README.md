@@ -11,17 +11,17 @@ The Windows binary is **statically linked**. OpenCV does not have to be installe
 compiler is needed — the resulting `ROpenCV.dll` imports nothing beyond `R.dll` and the
 standard Windows system libraries.
 
-Download `ROpenCV_0.0.1.zip` from the [Releases](../../releases) page, then install it:
+Download `ROpenCV_0.0.2.zip` from the [Releases](../../releases) page, then install it:
 
 ```r
-install.packages("path/to/ROpenCV_0.0.1.zip", repos = NULL, type = "win.binary")
+install.packages("path/to/ROpenCV_0.0.2.zip", repos = NULL, type = "win.binary")
 ```
 
 Or let R fetch it directly, without saving the file first:
 
 ```r
 install.packages(
-  "https://github.com/Judy-ZQ/ROpenCV/releases/download/v0.0.1/ROpenCV_0.0.1.zip",
+  "https://github.com/Judy-ZQ/ROpenCV/releases/download/v0.0.2/ROpenCV_0.0.2.zip",
   repos = NULL,
   type  = "win.binary"
 )
@@ -128,6 +128,10 @@ diff:
 * **`[` is 1-based**, but the `cv_*` drawing functions still use OpenCV's **0-based**
   pixel coordinates.
 * **`Scalar(...)` is a numeric vector.** Write `c(0, 0, 0)`.
+* **`cv_createTrackbar()` does not call `onChange` when the trackbar is created** (since
+  0.0.2). Same contract as `cv::createTrackbar`: creating only attaches the callback, so
+  draw the first frame yourself. This makes several sliders sharing one callback safe to
+  create in any order — no `ready` flag needed.
 
 Two of these fail silently rather than raising an error: `img[0, 0] = 255` writes nothing,
 and assigning a short colour vector to a multi-pixel region produces a striped result

@@ -45,14 +45,29 @@ draw <- function(pos) {
 }
 cv_namedWindow("blend")
 cv_createTrackbar("alpha", "blend", 50L, 100L, onChange = draw)
+draw(50L)                             # 建完自己画第一帧
 while (cv_waitKey(30L) != 27L) NULL   # ESC 退出
 }
 
-\strong{创建时会先回调一次。}位置来自 OpenCV 5 已经废弃的 \code{int*} 参数，
-传 \code{NULL} 之后没法在创建时指定，所以 \code{value} 非零时会补一次
-\code{\link{cv_setTrackbarPos}}——而它会触发回调。也就是说带 \code{onChange}
-创建时，你的函数会立刻以 \code{value} 为参数被调用一次。这通常正是想要的
-（初始画面直接画出来），但如果你在回调里做了有副作用的事，要留意。
+\strong{创建时不会调用 \code{onChange}。}和 \code{cv::createTrackbar} 一致：
+建滑动条只挂回调、不动画面，第一帧要自己调一次函数画出来。这样多条滑动条
+共用一个回调也没有先后顺序问题——先把几条都建好，再统一调一次：
+
+\preformatted{
+#阈值运算类型：0 二值化 / 1 逆二值化 / 2 截断 / 3 下折断 / 4 上折断
+Threshold_Demo <- function(val) {
+  type  <- cv_getTrackbarPos("Type:",  "Threshold Demo")
+  value <- cv_getTrackbarPos("Value:", "Threshold Demo")
+  cv_imshow("Threshold Demo", cv_threshold(src, value, 255, type))
+}
+cv_namedWindow("Threshold Demo", WINDOW_AUTOSIZE)
+cv_createTrackbar("Type:",  "Threshold Demo",   3L,   4L, Threshold_Demo)
+cv_createTrackbar("Value:", "Threshold Demo",   0L, 255L, Threshold_Demo)
+Threshold_Demo(0L)                    # 两条都在了，画第一帧
+}
+
+只有你自己显式调 \code{\link{cv_setTrackbarPos}} 才会触发回调——那是程序主动
+改位置，通知是对的。
 
 \strong{回调里报错不会崩掉窗口循环。}异常在 C++ 侧被兜住，只往 stderr 打一行，
 循环继续。修好 R 代码后继续拖动即可，不用重建窗口。
